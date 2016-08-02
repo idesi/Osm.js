@@ -1,7 +1,7 @@
 {
   "name": "osm.js",
   "version": "1.0.0",
-  "description": "",
+  "description": "A modern JavaScript library which offers utility functions for objects in JavaScript",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/idesi/Osm.js.git"
