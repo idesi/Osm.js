@@ -16,7 +16,7 @@ npm install osmjs
 Then require/import it in any module
 
 ```javascript
-import osm from osmjs;
+import osm from 'osm.js';
 ```
 ### Browser
 To use `Osm.js` from a browser, download [lib/osm.min.js](https://github.com/idesi/Osm.js/blob/master/lib/osm.min.js)
