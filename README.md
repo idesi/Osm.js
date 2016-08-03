@@ -1,5 +1,5 @@
 # Osm.js
-
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 A modern JavaScript library which offers utility functions for objects in JavaScript.
 `Osm.js` follows functional programming paradigms such as immutability & currying.
 `Osm.js` methods always return a new object rather than mutating the objects passed in. This leads to consistent & predictable behavior.
