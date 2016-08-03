@@ -11,7 +11,7 @@ Osm.js is exported as a UMD module, which means it can work on both the client &
 Installing `Osm` via npm
 
 ```shell
-npm install osmjs
+npm install osm.js
 ```
 Then require/import it in any module
 
