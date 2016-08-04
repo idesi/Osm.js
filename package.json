@@ -45,6 +45,10 @@
   "config": {
     "commitizen": {
       "path": "cz-conventional-changelog"
+    },
+    "ghooks": {
+      "pre-commit": "npm run test:single",
+      "pre-push": "npm run build"
     }
   }
 }
