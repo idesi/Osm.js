@@ -32,7 +32,7 @@ const filter = curry((predicate, obj) => {
 
 const isObject = (obj) => Object.prototype.toString.call(obj) === objIdentifier;
 
-const clone = (obj) => Object.assign(Object.create(obj), obj);
+const clone = (obj) => Object.create(obj);
 
 const extend = (...args) => {
   return args.reduce((acc, curr) => {
