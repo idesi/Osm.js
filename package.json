@@ -16,7 +16,7 @@
     "url": "https://github.com/idesi/Osm.js/issues"
   },
   "homepage": "https://github.com/idesi/Osm.js#readme",
-  "main": "lib/library.js",
+  "main": "lib/osm.min.js",
   "scripts": {
     "commit": "git-cz",
     "build": "webpack --mode=build",
