@@ -34,6 +34,22 @@ describe('osm', () => {
     it('should create a new object when all arguments are provided', () => {
       expect(osm.map(double, scores)).to.eql(doubleScores);
     });
+
+    it('should only iterate over the own properties of the object', () => {
+      let proto = {
+        protoOwned: true
+      },
+      testObj = Object.create(proto);
+      testObj.myOwn = true;
+
+      let result = osm.map((v) => v, testObj),
+        expected = {
+          myOwn: true
+        };
+      expect(result).to.eql(expected);
+      expect(result.hasOwnProperty('myOwn')).to.be.true;
+      expect(result.hasOwnProperty('protoOwned')).to.be.false;
+    })
   });
 
   describe('filter', () => {
@@ -84,8 +100,20 @@ describe('osm', () => {
   });
 
   describe('clone', () => {
-    it('should create a shallow clone of the object', () => {
-      expect(osm.clone(scores)).to.eql(scores);
+    it('should create a deep clone of the object', () => {
+      let animal = {
+        name: 'Toby',
+        type: 'Dog',
+        tricks: {
+          perfected: ['Sit', 'Lie Down', 'Rollover', 'Circle'],
+          learning: ['Handshake'],
+          teacher: {
+            name: 'Mr. Awesome'
+          }
+        }
+      };
+
+      expect(osm.clone(animal)).to.eql(animal);
     });
   });
 
