@@ -125,3 +125,31 @@ const scores = {
 };
 osm.omit(scores, ['Jason', 'Sam']); //returns {Jane: 1}
 ```
+
+### findKeyByValue
+```javascript
+osm.findKeyByValue(val, obj);
+```
+Returns the first key which matches the pass value. If no match found, then undefined is returned.
+Note: If the `val` is `NaN` or an `object` then `undefined` is returned.
+
+```javascript
+const obj = {
+  'arrayVal': [1, 2, 3],
+  'boolean': false,
+  'string': 'test',
+  'nullVal': null,
+  'notDefined': undefined,
+  'notANumber': NaN,
+  'dateVal': new Date('2016-01-01'),
+  'secondBool': false
+}
+
+osm.findKeyByValue([1,2,3], obj); //returns 'arrayVal'
+osm.findKeyByValue(false, obj); //returns 'boolean'
+osm.findKeyByValue('test', obj); //returns 'string'
+osm.findKeyByValue([null, obj); //returns 'nullVal'
+osm.findKeyByValue(undefined, obj); //returns 'notDefined'
+osm.findKeyByValue(NaN, obj); //returns undefined
+osm.findKeyByValue(new Date('2016-01-01'), obj); //returns dateVal
+```
