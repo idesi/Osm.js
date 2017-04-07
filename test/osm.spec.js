@@ -400,4 +400,20 @@ describe('osm', () => {
       expect(curried(obj)).to.eql(expected);
     });
   });
+
+  describe('keys', () => {
+    it('should return an empty array when give null or undefined', () => {
+      const expected = [];
+
+      expect(osm.keys(null)).to.eql(expected);
+      expect(osm.keys(undefined)).to.eql(expected);
+    });
+
+    it('should return outcome of object.keys in other scenarios', () => {
+      const testData = ['', false, true, 0, 1, 100, 'another test', {},
+        {test: 1, 'another-one': 2, 'third': {fourth: 4}}, NaN, new Date()];
+
+      testData.forEach(data => expect(Object.keys(data)).to.eql(osm.keys(data)));
+    });
+  });
 });

@@ -102,6 +102,14 @@ const findKeyByValue = curry((value, obj) => {
     .find(key => comparator(key, value, obj));
 });
 
+const keys = obj => {
+  if (obj === null || obj === undefined) {
+    return [];
+  }
+
+  return Object.keys(obj);
+};
+
 export default {
   map,
   filter,
@@ -110,5 +118,6 @@ export default {
   extend,
   omit,
   findKeyByValue,
-  isArrayEqual
+  isArrayEqual,
+  keys
 };
