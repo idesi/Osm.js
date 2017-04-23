@@ -31,6 +31,32 @@ const filter = curry((predicate, obj) => {
     }, {});
 });
 
+const every = curry((predicate, obj) => {
+  let returnVal = true;
+
+  for (let i = 0, keys = Object.keys(obj); i < keys.length; i++) {
+    if (!predicate(obj[keys[i]])) {
+      returnVal = false;
+      break;
+    }
+  }
+  return returnVal;
+
+});
+
+const some = curry((predicate, obj) => {
+  let returnVal = false;
+
+  for (let i = 0, keys = Object.keys(obj); i < keys.length; i++) {
+    if (predicate(obj[keys[i]])) {
+      returnVal = true;
+      break;
+    }
+  }
+  return returnVal;
+
+});
+
 const protoToString = Object.prototype.toString;
 
 const isObject = (obj) => protoToString.call(obj) === objIdentifier;
@@ -119,5 +145,7 @@ export default {
   omit,
   findKeyByValue,
   isArrayEqual,
-  keys
+  keys,
+  every,
+  some
 };

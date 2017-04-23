@@ -71,6 +71,42 @@ describe('osm', () => {
     });
   });
 
+  describe('every', () => {
+    it('should return a function when obj is not provided', () => {
+      assert.isFunction((osm.every(predicate)));
+    });
+
+    it('should return correct returnVal after remianing args are provided', () => {
+      const everyFn = osm.every(predicate);
+
+      expect(everyFn(scores)).to.be.false;
+      expect(everyFn(doubleScores)).to.be.true;
+    });
+
+    it('should return correct returnVal when all arguments are provided initially', () => {
+      expect(osm.every(predicate, scores)).to.be.false;
+      expect(osm.every(predicate, doubleScores)).to.be.true;
+    });
+  });
+
+  describe('some', () => {
+    it('should return a function when obj is not provided', () => {
+      assert.isFunction((osm.some(predicate)));
+    });
+
+    it('should return correct returnVal after remianing args are provided', () => {
+      const everyFn = osm.some(predicate);
+
+      expect(everyFn(scores)).to.be.true;
+      expect(everyFn(doubleScores)).to.be.true;
+    });
+
+    it('should return correct returnVal when all arguments are provided initially', () => {
+      expect(osm.some(predicate, scores)).to.be.true;
+      expect(osm.some(predicate, doubleScores)).to.be.true;
+    });
+  });
+
   describe('isObject', () => {
     it('should return true if parameter is an object', () => {
       expect(osm.isObject({})).to.be.true;
